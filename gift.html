@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Happy Birthday Tepiii!</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background-color: #1a1a1a;
+			padding: 0 5vw;
+			color: #fff;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			font-size: 6vw;
+			color: #ff69b4;
+			margin-bottom: 2vw;
+			transition: opacity 0.5s ease-in-out;
+		}
+		button {
+			font-size: 2vw;
+			background-color: #ff69b4;
+			color: #fff;
+			padding: 1vw 2vw;
+			border: none;
+			border-radius: 5px;
+			margin-top: 2vw;
+			cursor: pointer;
+			transition: opacity 0.5s ease-in-out;
+		}
+		button.hide {
+			opacity: 0;
+			pointer-events: none;
+		}
+		#message {
+			font-size: 1.5vw;
+			color: #fff;
+			margin-top: 5vw;
+			text-align: left;
+			text-justify: inter-word;
+			line-height: 1.5;
+			max-width: 80vw;
+			display: none;
+			flex-direction: column;
+			justify-content: center;
+			margin: 0 auto;
+			text-align: center;
+			opacity: 0;
+			animation: fadeIn 0.5s ease-in-out forwards;
+		}
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+		#message.show {
+			display: flex;
+		}
+		#message p {
+			margin: 0;
+			padding: 0;
+			margin-bottom: 2vw;
+			text-align: justify;
+		}
+		#message strong {
+			font-weight: bold;
+		}
+		#message em {
+			font-style: italic;
+		}
+		#message br {
+			display: none;
+		}
+		#message p:last-child {
+			margin-bottom: 0;
+		}
+		@media screen and (min-width: 768px) {
+			#message {
+				font-size: 1.2vw;
+			}
+			h1 {
+				font-size: 4vw;
+			}
+			button {
+				font-size: 1.5vw;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Happy Birthday Tepiii!</h1>
+	<button onclick="showMessage()">View Message</button>
+	<div id="message">
+	</div>
+	<script>
+		function showMessage() {
+			document.querySelector('h1').style.opacity = '0';
+			document.querySelector('button').classList.add('hide');
+			const message = `Dear, Tep 🐈‍⬛
+
+Happy Birthday, Tep! Semoga panjang umur dan sehat selalu coy. Thank you for being such a great friend and to a certain extent a great mental support, I wish I can give you something more than this lousy gift but I do hope you appreciate this. It's going to be less than one year to graduation I hope you get to your desired University, now I'm just gonna keep this short so it won't take too much of your time. Again, thank you for being a great friend, this Birthday may be one of the last ones where we still communicate with each other so I hope for the next few months we can make the most of it and enjoy our life and of course stay in good terms with each other. Thank you for reading this, hope we can have a long and happy life!
+
+Sincerely,
+Rayhan 🙂`;
+			const paragraphs = message.split('\n\n');
+			let formattedMessage = '';
+			for (let i = 0; i < paragraphs.length; i++) {
+				if (i === 0) {
+					formattedMessage += '<p>' + paragraphs[i] + '</p>';
+				} else if (i === paragraphs.length - 1) {
+					formattedMessage += '<p>' + paragraphs[i] + '</p>';
+				} else {
+					formattedMessage += '<p>' + paragraphs[i] + '</p><br>';
+				}
+			}
+			document.querySelector('#message').innerHTML = formattedMessage;
+			document.querySelector('#message').classList.add('show');
+		}
+	</script>
+</body>
+</html>
